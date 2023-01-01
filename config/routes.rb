@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   
   root "application#index"
   
-  resources :users, only: [:show, :new, :create]
+  resources :users, only: [:new, :create, :show]
   
   
   resources :cocktail_ingredients
