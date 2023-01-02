@@ -29,6 +29,7 @@ gem 'jbuilder', '~> 2.5'
 
  gem 'dotenv-rails'
  gem 'omniauth'
+ gem 'omniauth-google-oauth2'
 
  gem 'faker', '~> 1.6', '>= 1.6.6'
 
