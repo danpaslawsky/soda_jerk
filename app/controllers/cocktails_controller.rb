@@ -1,13 +1,29 @@
 class CocktailsController < ApplicationController
-  def new
+  
+  def index
+    @cocktails = Cocktail.all
   end
 
-  def index
+  def new
+    @coctail = Cocktail.new
+  end
+
+  def create
+  end
+
+  def show
   end
 
   def edit
   end
 
-  def show
+  def update
+
   end
+
+  def destroy
+  end
+
+
+  
 end
