@@ -3,6 +3,9 @@ class SessionsController < ApplicationController
 
     # render the login form
     def new
+        if logged_in?
+            redirect_to root_path
+        end
     end 
 
     # process login form

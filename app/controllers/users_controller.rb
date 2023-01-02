@@ -4,7 +4,7 @@ class UsersController < ApplicationController
 
   # render a signup form
   def new
-    if !logged_in
+    if !logged_in?
       @user = User.new
     else
       redirect_to root_path
