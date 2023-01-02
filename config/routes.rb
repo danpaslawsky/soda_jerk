@@ -1,17 +1,20 @@
 Rails.application.routes.draw do
   
-  root "application#index"
+  root to: 'application#index'
+
+  get '/signup', to: 'users#new'
+  post '/signup', to: 'users#create'
 
   get '/login', to: 'sessions#new'
-  post '/sessions', to: 'sessions#create'
+  post '/login', to: 'sessions#create'
   delete '/logout/:id', to: 'sessions#destroy', as: 'logout'
 
-  resources :users [:show, :new, :create, :destroy]
+  resources :users
   
   
   resources :cocktail_ingredients
   resources :ingredients
-  resources :cocktails
+  resources :cocktails 
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

@@ -1,13 +1,16 @@
 class SessionsController < ApplicationController
     before_action :require_login, only: [:destroy]
 
+    # render the login form
     def new
-        if !current_user
-            @user = User.new
-        else 
-            redirect_to user_path(current_user)
-        end 
     end 
+
+    # process login form
+    def create
+        #binding.pry
+        #user = User.find_by(username: )
+
+    end
 
 
      def destroy
