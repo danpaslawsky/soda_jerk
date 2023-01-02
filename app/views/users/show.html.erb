@@ -1,4 +1,16 @@
 <h1>Users#show</h1>
 <p>Find me in app/views/users/show.html.erb</p>
 
-<strong>Username:</strong>
+<div class="form">
+    
+    <h2>Account Information</h2>
+    <hr><br>
+    <h5>Name: <%= @user.username %></h5>
+    <h5>Email: <%= @user.email %></h5><br>
+
+
+    <p> <%= link_to "New Cocktail", new_cocktail_path(@user) %> </p>
+
+    <%= link_to "Logout", logout_path(current_user), method: :delete %>
+    
+</div>

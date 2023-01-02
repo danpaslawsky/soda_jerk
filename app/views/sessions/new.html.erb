@@ -1,0 +1,12 @@
+<h3>Sign In To Your Account Below</h3>
+    <hr><br>
+      <%= form_for @user, url: {action: "create", controller: "sessions"} do |f|%>
+        <% if flash[:alert] %>
+          <div class="notice"><%= flash[:alert] %></div>
+        <% end %>
+          Email: <%= f.text_field :email%> <br>
+          Password: <%=f.password_field :password%><br>
+         
+          <%=f.submit "Login", class: "btn btn-primary"%>
+          <%= link_to "Cancel", root_path, class: "btn btn-danger"%>
+      <%end%><br>
