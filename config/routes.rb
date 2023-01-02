@@ -1,12 +1,5 @@
 Rails.application.routes.draw do
   
-  get 'users/index'
-  get 'users/new'
-  get 'users/show'
-  get 'cocktails/new'
-  get 'cocktails/index'
-  get 'cocktails/edit'
-  get 'cocktails/show'
   root "application#index"
   
   resources :users, only: [:new, :create, :show]

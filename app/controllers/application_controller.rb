@@ -1,5 +1,6 @@
 class ApplicationController < ActionController::Base
-
+    helper_method :current_user
+    
     #root
     def index
     end
@@ -11,11 +12,14 @@ class ApplicationController < ActionController::Base
 
     #verify login to make sure session user_id evaluates to true
     def logged_in?
-
+        !!session[:user_id]
     end
 
     def require_login
-
+        if !logged_in?  
+            flash[:alert] = "Please login to continue" 
+            redirect_to root_path
+        end
     end
   
 
