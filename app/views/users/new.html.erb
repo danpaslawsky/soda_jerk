@@ -3,21 +3,31 @@
 
 <h1>Sign Up Here</h1>
 
-<%= form_with model: @user |f|
-    <%= f.label :email %>
-    <%= f.text_field :email %>
-
+<%= form_with model: @user do |f| %>
+    <div>
     <%= f.label :username %>
     <%= f.text_field :username %>
-
+    </div>
+</br>
+    <div>
+    <%= f.label :email %>
+    <%= f.text_field :email %>
+    </div>
+</br>
+    <div>
     <%= f.label :password %>
     <%= f.password_field :password %>
-
+    </div>
+</br>
+    <div>
     <%= f.label :password_confirmation %>
     <%= f.password_field :password_confirmation %>
-
+    </div>
+</br>
+    <div>
     <%= f.submit 'Sign Up' %>
-
+    </div>
+    
 <% end %>
 
      
