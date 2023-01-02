@@ -5,12 +5,12 @@
     
     <h2>Account Information</h2>
     <hr><br>
-    <h5>Name: <%= @user.username %></h5>
-    <h5>Email: <%= @user.email %></h5><br>
+    <h5><%= @user.username %></h5>
+    <h5><%= @user.email %></h5><br>
 
 
     <p> <%= link_to "New Cocktail", new_cocktail_path(@user) %> </p>
 
-    <%= link_to "Logout", logout_path(current_user), method: :delete %>
+    <%= button_to 'logout', logout_path %>
     
 </div>

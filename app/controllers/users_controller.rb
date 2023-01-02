@@ -14,7 +14,7 @@ class UsersController < ApplicationController
           session[:user_id] = user.id
           redirect_to root_path
       else 
-          render 'new'
+          render :new
       end 
   end 
 
@@ -26,7 +26,7 @@ class UsersController < ApplicationController
 
   # Only allow a list of trusted parameters through
   def user_params
-    params.require(:user).permit(:username, :email, :password, :password_confirmation)
+    params.require(:user).permit(:username, :email, :password)
   end
 
 end
