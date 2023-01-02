@@ -9,3 +9,7 @@
 10.times do
     User.create(username: Faker::Name)
 end
+
+# Cocktail.create([{cocktail_name: "Whiskey Sour"}, {cocktail_name: "Martini"}])
+
+# Ingredient.create([{ingredient_name: "lemon Juice"}, {ingredient_name: "sugar"}, {ingredient_name: "Whiskey"}])
