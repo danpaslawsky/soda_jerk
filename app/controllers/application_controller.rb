@@ -1,5 +1,5 @@
 class ApplicationController < ActionController::Base
-    #helper_method :current_user
+    include ApplicationHelper 
     
     #root
     def index
