@@ -1,4 +1,6 @@
 class CocktailsController < ApplicationController
+  before_action :current_user
+  #before_action :set_cocktail
   
   #to show all cocktails route: '/cocktails' path: cocktails_path
   def index
@@ -8,6 +10,7 @@ class CocktailsController < ApplicationController
   # to render a new form route: /cocktails/new path: new_cocktail_path
   def new
     @cocktail = Cocktail.new
+    #5.times { @cocktail.cocktail_ingredients.build.build_ingredient}
   end  
 
   def create
@@ -33,6 +36,10 @@ class CocktailsController < ApplicationController
   end
 
   private
+
+  def set_cocktail
+    @cocktail = Cocktail.find_by(params[:id])
+  end
 
    # Only allow a list of trusted parameters through.
    def cocktail_params

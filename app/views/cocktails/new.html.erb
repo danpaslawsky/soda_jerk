@@ -4,38 +4,7 @@
     
         <h1>Create a New Cocktail</h1>
 
-<%= form_with(model: @cocktail) do |form| %>
-  <% if @cocktail.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(cocktail.errors.count, "error") %> prohibited this cocktail from being saved:</h2>
 
-      <ul>
-      <% cocktail.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
-  <div class="field">
-    <%= form.label :cocktail_name %>
-    <%= form.text_field :cocktail_name %>
-  </div>
-
-  <div class="field">
-    <%= form.label :instructions %>
-    <%= form.text_field :instructions %>
-  </div>
-
-  <div class="field">
-    <%= form.label :ingredient_name %>
-    <%= form.text_field :ingredient_name %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
-<% end %>
             
                
         
