@@ -2,8 +2,21 @@ class CocktailsController < ApplicationController
   
   #to show all cocktails route: '/cocktails' path: cocktails_path
   def index
-    @cocktails = Cocktail.all
-  end
+    if params[:user_id] #index cocktails for a specific user
+        @cocktails = Cocktail.user_cocktails_index(current_user)
+    elsif params[:query] #index cocktails based on search query
+        @cocktails = Cocktail.query_cocktails_index(params[:query]) 
+        if !@cocktails
+            flash[:alert] = "No cocktails match your search query" 
+            @cocktails = Cocktail.all
+        else
+            flash[:alert].clear unless flash[:alert] == nil
+            @cocktails
+        end
+    else 
+        @cocktails = Cocktail.all 
+    end 
+  end 
 
   # to render a new form route: /cocktails/new path: new_cocktail_path
   def new
