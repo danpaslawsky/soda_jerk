@@ -35,6 +35,8 @@ gem 'jbuilder', '~> 2.5'
 
  gem 'faker', '~> 1.6', '>= 1.6.6'
 
+ gem "bootstrap_form", "~> 4.0"
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 
