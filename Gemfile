@@ -30,7 +30,7 @@ gem 'jbuilder', '~> 2.5'
  gem 'dotenv-rails'
  gem 'omniauth'
  gem 'omniauth-google-oauth2'
- gem 'omniauth-rails_csrf_protection' #protects against cross site forgery added layer of security
+ gem 'omniauth-rails_csrf_protection'
 
 
  gem 'faker', '~> 1.6', '>= 1.6.6'
