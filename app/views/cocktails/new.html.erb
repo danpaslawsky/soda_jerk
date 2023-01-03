@@ -1,3 +1,29 @@
 <h1>Cocktails#new</h1>
 <p>Find me in app/views/cocktails/new.html.erb</p>
 
+    <div class="form">
+        <h1>Create a New Cocktail</h1>
+
+        <%= form_for @cocktail do |f|%>
+            <%= f.text_field :cocktail_name, label: "Cocktail Name"%>
+        <%= f.text_field :instructions, label: "Mixing Directions"%>
+
+<h3> Ingredients:</h3>
+
+<%= f.fields_for :cocktail_ingredients do |ci|%>
+    <div class="row">
+        <div class="col">
+            <%= ci.text_field :quantity%>
+        </div> 
+        <%= ci.fields_for :ingredient do |i|%>
+            <div class="col">
+                <%= i.text_field :ingredient_name %>
+            </div>    
+        <%end%>
+    </div>    
+<%end%>
+            
+            <%= f.submit "Create Cocktail", class: "btn btn-primary"%>
+            
+        <%end%>
+    </div>
