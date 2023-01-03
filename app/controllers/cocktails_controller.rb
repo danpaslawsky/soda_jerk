@@ -21,11 +21,18 @@ class CocktailsController < ApplicationController
   # to render a new form route: /cocktails/new path: new_cocktail_path
   def new
     @cocktail = Cocktail.new
-  end
+    5.times { @cocktail.cocktail_ingredients.build.build_ingredient}
+  end  
 
   def create
-    @cocktail = Cocktail.new(cocktail_params)
-  end
+    @cocktail = @user.cocktails.build(cocktail_params)
+    if @cocktail.save 
+        redirect_to user_cocktail_path(@user, @cocktail)
+    else 
+        5.times { @cocktail.cocktail_ingredients.build.build_ingredient}
+        render 'new'
+    end 
+  end 
 
   def show
   end
