@@ -11,10 +11,10 @@ Rails.application.routes.draw do
 
   get '/auth/:provider/callback', to: 'sessions#omniauth'
 
-  resources :users
+  
   
   resources :users do 
-    resources :cocktails, only: [:new, :create, :index]
+    resources :cocktails, only: [:index, :new, :create]
   end 
 
   resources :cocktail_ingredients

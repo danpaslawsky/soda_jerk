@@ -16,7 +16,7 @@
               <div class="col">
                 <%= ci.text_field :quantity%>
               </div> 
-                <%= ci.fields_for :ingredient_name do |i|%>
+                <%= ci.fields_for :ingredients do |i|%>
               <div class="col">
                   <%= i.text_field :ingredient_name %>
               </div>    
@@ -28,6 +28,11 @@
           <%= f.submit "Create Cocktail", class: "btn btn-primary"%>
 
       <%end%>
+
+
+
+
+      
             
                
         

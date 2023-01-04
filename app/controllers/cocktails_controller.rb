@@ -5,13 +5,15 @@ class CocktailsController < ApplicationController
   
   #to show all cocktails route: '/cocktails' path: cocktails_path
   def index
+    binding.pry
+    @cocktail = User.all
     
   end
 
   # to render a new form route: /cocktails/new path: new_cocktail_path
   def new
     @cocktail = Cocktail.new
-    5.times { @cocktail.cocktail_ingredients.build.build_ingredient}
+    #3.times { @cocktail.cocktail_ingredients.build.build_ingredient}
   end  
 
   # process submitted new form route: '/cocktails' path: coctails_path (only used on servers side)
@@ -19,14 +21,9 @@ class CocktailsController < ApplicationController
     #byebug
     @cocktail = current_user.cocktails.build(cocktail_params)
     if @cocktail.save 
-        redirect_to user_cocktail_path(@user, @cocktail)
-    else 
-      count = @cocktail.cocktail_ingredients.size
-        if count < 5
-          available_ingredients = 5 - count 
-          available_ingredients.times {@cocktail.cocktail_ingredients.build.build_ingredient} # renders 5 fields for both the “cocktail_ingredients” & “ingredient” attributes.
-        end
-      render 'new'
+        redirect_to cocktail_path(@cocktail)
+    else
+        render 'new'
     end 
   end 
 
@@ -52,7 +49,7 @@ class CocktailsController < ApplicationController
 
    # Only allow a list of trusted parameters through.
    def cocktail_params
-      params.require(:cocktail).permit(:cocktail_name, :instructions, cocktail_ingredients_attributes: [:id, :quantity, ingredient_attributes: [:ingredient_name]])
+      params.require(:cocktail).permit(:cocktail_name, :instructions, cocktail_ingredients_attributes: [:quantity, ingredients_attributes: [:ingredient_name]])
    end
 
 

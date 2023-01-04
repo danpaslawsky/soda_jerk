@@ -5,12 +5,13 @@ class Cocktail < ApplicationRecord
 
     validates :cocktail_name, presence: true
     validates :instructions, presence: true 
-    validates :cocktail_ingredients, presence: true
-
-    validates_associated :cocktail_ingredients
+    #validates :quantity, presence: true
+    #validates :ingredient_name, presence: true
+    #validates_associated :cocktail_ingredients
 
     accepts_nested_attributes_for :cocktail_ingredients
     
+    accepts_nested_attributes_for :ingredients
 
 
 
