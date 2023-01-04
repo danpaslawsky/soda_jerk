@@ -2,9 +2,32 @@
 <p>Find me in app/views/cocktails/new.html.erb</p>
 
     
-        <h1>Create a New Cocktail</h1>
+<h1>Create a New Cocktail</h1>
 
+        <%= bootstrap_form_for @cocktail do |f|%>
 
+            <%= f.text_field :cocktail_name, label: "Cocktail Name"%>
+            <%= f.text_field :instructions, label: "Mixing Directions"%>
+
+<h3> Ingredients:</h3>
+
+            <%= f.fields_for :cocktail_ingredients do |ci|%>
+              <div class="row">
+              <div class="col">
+                <%= ci.text_field :quantity%>
+              </div> 
+                <%= ci.fields_for :ingredient_name do |i|%>
+              <div class="col">
+                  <%= i.text_field :ingredient_name %>
+              </div>    
+              <%end%>
+              </div>    
+            <%end%>
+
+          
+          <%= f.submit "Create Cocktail", class: "btn btn-primary"%>
+
+      <%end%>
             
                
         

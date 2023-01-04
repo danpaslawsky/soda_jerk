@@ -9,6 +9,13 @@ module ApplicationHelper
     def logged_in?
         current_user
     end
+
+    def require_login
+        unless current_user
+          flash[:notice] = "Please login"
+          redirect_to root_url
+        end
+      end
     
     
     
