@@ -13,14 +13,21 @@ class CocktailsController < ApplicationController
     #5.times { @cocktail.cocktail_ingredients.build.build_ingredient}
   end  
 
+
   def create
     @cocktail = @user.cocktails.build(cocktail_params)
     if @cocktail.save 
         redirect_to user_cocktail_path(@user, @cocktail)
     else 
-        render 'new'
+      count = @cocktail.cocktail_ingredients.size
+        if count < 5
+          available_ingredients = 5 - count 
+          available_ingredients.times {@cocktail.cocktail_ingredients.build.build_ingredient} # renders 5 fields for both the “cocktail_ingredients” & “ingredient” attributes.
+        end
+      render 'new'
     end 
   end 
+
 
   def show
   end
@@ -43,8 +50,7 @@ class CocktailsController < ApplicationController
 
    # Only allow a list of trusted parameters through.
    def cocktail_params
-    params.require(:cocktail).permit(:cocktail_name, :instructions, cocktail_ingredients_attributes: [:id, :quantity,
-    ingredient_attributes: [:ingredient_name]])
+      params.require(:cocktail).permit(:cocktail_name, :instructions, cocktail_ingredients_attributes: [:id, :quantity, ingredient_attributes: [:ingredient_name]])
    end
 
 
