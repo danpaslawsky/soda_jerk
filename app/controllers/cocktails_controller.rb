@@ -5,9 +5,15 @@ class CocktailsController < ApplicationController
   
   #to show all cocktails route: '/cocktails' path: cocktails_path
   def index
-    binding.pry
-    @cocktail = User.all
-    
+    #binding.pry
+    @cocktail = Cocktail.all
+    # if !params[:name].blank? #filtering recipes by name
+    #   @coctails = Recipe.by_name(params[:name])
+    # elsif !params[:user].blank? #filtering recipes by user
+    #   @cocktails = Recipe.by_user(params[:user])
+    # else
+    #   @cocktails = Cocktail.all
+    # end    
   end
 
   # to render a new form route: /cocktails/new path: new_cocktail_path
@@ -49,7 +55,7 @@ class CocktailsController < ApplicationController
 
    # Only allow a list of trusted parameters through.
    def cocktail_params
-      params.require(:cocktail).permit(:cocktail_name, :instructions, cocktail_ingredients_attributes: [:quantity, ingredients_attributes: [:ingredient_name]])
+      params.require(:cocktail).permit(:cocktail_name, :instructions, cocktail_ingredients_attributes: [:quantity, :ingredient_id])
    end
 
 

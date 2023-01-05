@@ -11,19 +11,7 @@
 
 <h3> Ingredients:</h3>
 
-            <%= f.fields_for :cocktail_ingredients do |ci|%>
-              <div class="row">
-              <div class="col">
-                <%= ci.text_field :quantity%>
-              </div> 
-                <%= ci.fields_for :ingredients do |i|%>
-              <div class="col">
-                  <%= i.text_field :ingredient_name %>
-              </div>    
-              <%end%>
-              </div>    
-            <%end%>
-
+            
           
           <%= f.submit "Create Cocktail", class: "btn btn-primary"%>
 
